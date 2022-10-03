@@ -23,7 +23,6 @@ function Login() {
       //모두 입력된 경우
       setID(getID);
       setPassword(getPassword);
-      console.log(id, password);
     }
 
     if (password !== userPassword) {
@@ -32,6 +31,7 @@ function Login() {
       return;
     }
 
+    console.log(id, password);
     e.target.ID.value = "";
     e.target.passWord.value = "";
   };
