@@ -1,8 +1,15 @@
+import { useEffect } from "react";
 import { AiOutlineEllipsis, AiOutlineLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import styles from "../css/Header.css";
 
-function Header({ title }) {
+function Header({ title, backBtn, etcBtn }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!backBtn) {
+    }
+  }, []);
 
   const goBack = (e) => {
     e.preventDefault();
@@ -10,12 +17,12 @@ function Header({ title }) {
   };
 
   return (
-    <div>
-      <button name="back" onClick={goBack}>
+    <div id="top">
+      <button className="back" onClick={goBack}>
         <AiOutlineLeft />
       </button>
       <div>{title}</div>
-      <button>
+      <button className="etc">
         <AiOutlineEllipsis />
       </button>
     </div>

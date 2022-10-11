@@ -1,0 +1,14 @@
+#top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+.back {
+  background-color: white;
+  border: none;
+}
+.etc {
+  background-color: white;
+  border: none;
+}

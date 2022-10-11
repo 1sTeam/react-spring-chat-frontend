@@ -14,7 +14,7 @@ function ChatList() {
 
   return (
     <div>
-      <Header title="채팅" />
+      <Header title="채팅" backBtn={false} etcBtn={false} />
       <div>리스트</div>
     </div>
   );
