@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 function ChatList() {
   const navigate = useNavigate();
-  const [signedUp, setSignedUp] = useState(false);
+  const [signedUp, setSignedUp] = useState(true);
 
   useEffect(() => {
     if (!signedUp) {
@@ -11,7 +12,12 @@ function ChatList() {
     }
   }, []);
 
-  return <div>채팅방 리스트</div>;
+  return (
+    <div>
+      <Header title="채팅" />
+      <div>리스트</div>
+    </div>
+  );
 }
 
 export default ChatList;
