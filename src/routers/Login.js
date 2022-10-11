@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [account, setAccount] = useState({ ID: "", password: "" });
   const [userPassword, setUserPassword] = useState("1234");
 
@@ -28,6 +30,10 @@ function Login() {
     alert("성공");
   };
 
+  const goSignUp = () => {
+    navigate("/signUp");
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -48,6 +54,7 @@ function Login() {
         />
         <br />
         <input type="submit" value="Login" />
+        <button onClick={goSignUp}>회원가입</button>
       </form>
     </div>
   );

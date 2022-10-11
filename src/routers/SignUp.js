@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate();
   const [newAccount, setNewAccount] = useState({
     ID: "",
     pwd: "",
@@ -27,6 +29,7 @@ function SignUp() {
     } else {
       //계정 생성
       console.log(newAccount);
+      navigate("/login");
     }
   };
 
