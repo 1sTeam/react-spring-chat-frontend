@@ -1,0 +1,14 @@
+.bubble {
+  width: 40%;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+.bubble.me {
+  background-color: #6f90f2;
+  text-align: right;
+}
+.bubble.you {
+  background-color: #b5b5b5;
+}
