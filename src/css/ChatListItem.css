@@ -23,6 +23,9 @@
   font-size: var(--font-currentTalk-size);
 }
 
-.checkedIcon {
+.alarm {
   display: block;
+}
+.alarm.checked {
+  display: none;
 }
