@@ -1,0 +1,28 @@
+:root {
+  --font-chatRoomName-size: 18px;
+  --font-currentTalk-size: 14px;
+}
+
+.chatRoomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  padding: 3px;
+}
+
+.chatRoomInfo:hover {
+  background-color: #dfdfdf;
+}
+
+#chatRoomName {
+  font-size: var(--font-chatRoomName-size);
+  font-weight: bold;
+}
+#currentTalk {
+  font-size: var(--font-currentTalk-size);
+}
+
+.checkedIcon {
+  display: block;
+}

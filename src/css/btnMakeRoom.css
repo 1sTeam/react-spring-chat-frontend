@@ -1,0 +1,10 @@
+#btnMake {
+  background-color: #7777dd;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

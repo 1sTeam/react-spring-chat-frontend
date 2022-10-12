@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import ChatListItem from "../components/ChatListItem";
+import btnStyle from "../css/btnMakeRoom.css";
 
 function ChatList() {
   const [chatInfo, setChatInfo] = useState([
@@ -21,6 +22,7 @@ function ChatList() {
       isChecked: true,
     },
   ]);
+
   const navigate = useNavigate();
   const [signedUp, setSignedUp] = useState(true);
 
@@ -43,7 +45,9 @@ function ChatList() {
           />
         ))}
       </div>
-      <button>+</button>
+      <button id="btnMake" style={btnStyle}>
+        +
+      </button>
     </div>
   );
 }
