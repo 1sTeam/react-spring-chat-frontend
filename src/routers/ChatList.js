@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import ChatListItem from "../components/ChatListItem";
-import btnStyle from "../css/btnMakeRoom.css";
+import Style from "../css/ChatList.css";
 
 function ChatList() {
   const [chatInfo, setChatInfo] = useState([
@@ -33,9 +33,9 @@ function ChatList() {
   }, []);
 
   return (
-    <div>
+    <div style={Style}>
       <Header title="채팅" backBtn={false} etcBtn={false} />
-      <div>
+      <div className="chatList">
         {chatInfo.map((g) => (
           <ChatListItem
             key={g.chatRoomName}
@@ -45,9 +45,7 @@ function ChatList() {
           />
         ))}
       </div>
-      <button id="btnMake" style={btnStyle}>
-        +
-      </button>
+      <button id="btnMake">+</button>
     </div>
   );
 }
