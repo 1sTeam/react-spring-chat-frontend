@@ -5,15 +5,14 @@ import ChatList from "./routers/ChatList";
 import ChatRoom from "./routers/ChatRoom";
 
 function App() {
+  const pathNames = ["/", "login", "signUp", "chatRoom"];
+  const components = [<ChatList />, <Login />, <SignUp />, <ChatRoom />];
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<ChatList />}></Route>
-        <Route path="login" element={<Login />}></Route>
-        <Route path="signUp" element={<SignUp />}></Route>
-        <Route path="chatRoom" element={<ChatRoom />}></Route>
-      </Routes>
-    </div>
+    <Routes>
+      {pathNames.map((path, index) => (
+        <Route path={path} element={components[index]} />
+      ))}
+    </Routes>
   );
 }
 

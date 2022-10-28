@@ -12,7 +12,7 @@ function ChatListItem({ chatRoomName, currentTalk, isChecked }) {
         <div id="chatRoomName">{chatRoomName}</div>
         <div id="currentTalk">{currentTalk}</div>
       </div>
-      <div className={`alarm ${isChecked ? "checked" : ""}`}>🔴</div>
+      <div className={`alarm ${isChecked ? "checked" : ""}`}></div>
     </div>
   );
 }

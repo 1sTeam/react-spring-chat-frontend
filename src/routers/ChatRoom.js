@@ -18,6 +18,12 @@ function ChatRoom() {
       sender: "user2",
       count: 2,
     },
+    {
+      content:
+        "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+      sender: "user2",
+      count: 3,
+    },
   ]);
 
   const onChange = (e) => {
@@ -40,7 +46,7 @@ function ChatRoom() {
           <ChatBubble key={chatLog.count} chatLog={chatLog} nowUser={nowUser} />
         ))}
       </div>
-      <form onSubmit={onSubmit}>
+      <form id="chatInput" onSubmit={onSubmit}>
         <input type="text" name="talk" onChange={onChange} />
         <input type="submit" value="전송" />
       </form>

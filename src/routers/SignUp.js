@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function SignUp() {
   const navigate = useNavigate();
   const [newAccount, setNewAccount] = useState({
-    ID: "",
+    id: "",
     pwd: "",
     nickname: "",
     email: "",
@@ -36,7 +36,7 @@ function SignUp() {
   return (
     <div>
       <form onSubmit={onMakeAccount}>
-        <div>아이디</div>
+        <label htmlFor="ID">아이디</label> // 바꾸기!!
         <input type="text" name="ID" onChange={onChangeState} />
         <div>비밀번호</div>
         <input type="password" name="pwd" onChange={onChangeState} />

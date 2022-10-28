@@ -25,6 +25,10 @@
 
 .alarm {
   display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background-color: red;
 }
 .alarm.checked {
   display: none;
