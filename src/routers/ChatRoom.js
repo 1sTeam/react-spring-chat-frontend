@@ -49,9 +49,14 @@ function ChatRoom() {
           <ChatBubble key={chatLog.count} chatLog={chatLog} nowUser={nowUser} />
         ))}
       </div>
-      <form id="chatInput" onSubmit={onSubmit}>
-        <input type="text" name="talk" onChange={onChange} />
-        <input type="submit" value="전송" />
+      <form className="chatInput" onSubmit={onSubmit}>
+        <input
+          className="contentInput"
+          type="text"
+          name="talk"
+          onChange={onChange}
+        />
+        <input className="contentSubmit" type="submit" value=">" />
       </form>
     </div>
   );
