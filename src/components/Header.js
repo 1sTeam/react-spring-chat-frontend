@@ -6,22 +6,17 @@ import styles from "../css/Header.css";
 function Header({ title, backBtn, etcBtn }) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!backBtn) {
-    }
-  }, []);
-
   const goBack = (e) => {
     e.preventDefault();
     navigate(-1);
   };
 
   return (
-    <div id="top">
-      <button className="back" onClick={goBack}>
+    <div className="top">
+      <button className={`back ${backBtn ? "" : "unseen"}`} onClick={goBack}>
         <AiOutlineLeft />
       </button>
-      <div>{title}</div>
+      <div className="headerTitle">{title}</div>
       <button className="etc">
         <AiOutlineEllipsis />
       </button>

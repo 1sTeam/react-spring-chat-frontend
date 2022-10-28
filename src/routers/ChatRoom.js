@@ -43,7 +43,7 @@ function ChatRoom() {
 
   return (
     <div>
-      <Header title={nowUser} backBtn={false} etcBtn={false} />
+      <Header title={nowUser} backBtn={true} etcBtn={true} />
       <div className="chatLogList">
         {chatLog.map((chatLog) => (
           <ChatBubble key={chatLog.count} chatLog={chatLog} nowUser={nowUser} />

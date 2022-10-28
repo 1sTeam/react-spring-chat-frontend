@@ -34,7 +34,7 @@ function ChatList() {
 
   return (
     <div style={Style}>
-      <Header title="채팅" backBtn={false} etcBtn={false} />
+      <Header title="Whatsup" backBtn={false} etcBtn={false} />
       <div className="chatList">
         {chatInfo.map((g) => (
           <ChatListItem
