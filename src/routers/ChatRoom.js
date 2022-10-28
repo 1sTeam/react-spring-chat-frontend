@@ -12,17 +12,20 @@ function ChatRoom() {
       content: "뭐해",
       sender: "user1",
       count: 1,
+      time: "11:31",
     },
     {
       content: "놀아",
       sender: "user2",
       count: 2,
+      time: "11:31",
     },
     {
       content:
         "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
       sender: "user2",
       count: 3,
+      time: "11:32",
     },
   ]);
 
