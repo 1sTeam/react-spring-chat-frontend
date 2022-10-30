@@ -9,16 +9,19 @@ function ChatList() {
     {
       chatRoomName: "user1",
       currentTalk: "배고파",
+      currentTime: "11:31",
       isChecked: false,
     },
     {
       chatRoomName: "user2",
       currentTalk: "안배고파",
+      currentTime: "11:31",
       isChecked: false,
     },
     {
       chatRoomName: "user3",
       currentTalk: "집 갈래",
+      currentTime: "11:32",
       isChecked: true,
     },
   ]);
@@ -41,6 +44,7 @@ function ChatList() {
             key={g.chatRoomName}
             chatRoomName={g.chatRoomName}
             currentTalk={g.currentTalk}
+            currentChat={g.currentTime}
             isChecked={g.isChecked}
           />
         ))}
