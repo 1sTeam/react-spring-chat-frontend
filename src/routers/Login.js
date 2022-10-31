@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -36,24 +37,39 @@ function Login() {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="ID"
-          placeholder="ID"
-          value={account.ID}
-          onChange={onChangeState}
-        />
+      <div className="logo">로고</div>
+      <form className="loginForm" onSubmit={onSubmit}>
+        <div className="signText">Sign in to your account</div>
+        <div className="loginBox">
+          <label htmlFor="ID" className="labelText">
+            ID
+          </label>
+          <br />
+          <input
+            className="loginID"
+            type="text"
+            name="ID"
+            placeholder="ID"
+            value={account.ID}
+            onChange={onChangeState}
+          />
+        </div>
+        <div className="loginBox">
+          <label htmlFor="password" className="labelText">
+            Password
+          </label>
+          <br />
+          <input
+            className="loginPwd"
+            type="password"
+            name="password"
+            placeholder="PASSWORD"
+            value={account.password}
+            onChange={onChangeState}
+          />
+        </div>
+        <input className="loginSubmit" type="submit" value="Login" />
         <br />
-        <input
-          type="password"
-          name="password"
-          placeholder="PASSWORD"
-          value={account.password}
-          onChange={onChangeState}
-        />
-        <br />
-        <input type="submit" value="Login" />
         <button onClick={goSignUp}>회원가입</button>
       </form>
     </div>

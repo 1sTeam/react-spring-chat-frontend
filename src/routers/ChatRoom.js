@@ -33,10 +33,13 @@ function ChatRoom() {
     setChatContent(e.target.value);
   };
   const onSubmit = (e) => {
+    e.preventDefault();
+    setCount((x) => x + 1);
     const newContent = {
       content: { chatContent },
       sender: { nowUser },
       count: { count },
+      time: "11:33",
     };
     setChatLog({ ...chatLog, newContent });
   };
