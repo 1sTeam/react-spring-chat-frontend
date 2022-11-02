@@ -1,0 +1,29 @@
+.signupTitle {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #b1b2ff;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.signupLogo {
+  font-size: 20vh;
+}
+
+.signupBtn {
+  border: none;
+  width: 92%;
+  height: 38px;
+  border-radius: 16px;
+  border: none;
+  padding: 6px;
+  margin: 14px;
+  color: white;
+  background-color: #b1b2ff;
+  font-size: 16px;
+}

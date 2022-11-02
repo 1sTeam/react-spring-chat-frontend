@@ -1,0 +1,18 @@
+.inputContent {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 8px;
+  margin: 6px;
+}
+
+.inputLabel {
+  padding: 2px;
+  padding-left: 8px;
+  font-size: 14px;
+}
+.inputBox {
+  height: 28px;
+  border-radius: 16px;
+  border: 1px #d2daff solid;
+  padding-left: 10px;
+}

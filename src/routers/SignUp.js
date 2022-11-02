@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBox from "../components/InputBox";
+import "../css/SignUp.css";
+import { AiOutlineSmile } from "react-icons/ai";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -45,6 +47,11 @@ function SignUp() {
 
   return (
     <div>
+      <div className="signupTitle">
+        <AiOutlineSmile className="signupLogo" />
+        Welcome!
+      </div>
+
       <form onSubmit={onMakeAccount}>
         {InputBoxList.map((box) => (
           <InputBox
@@ -53,7 +60,7 @@ function SignUp() {
             onChangeState={onChangeState}
           />
         ))}
-        <input type="submit" value="계정 생성" />
+        <input className="signupBtn" type="submit" value="Sign Up" />
       </form>
     </div>
   );
