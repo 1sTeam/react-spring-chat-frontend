@@ -35,15 +35,19 @@ function ChatRoom() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    setCount((x) => x + 1);
-    const newChat = {
-      content: chatContent,
-      sender: nowUser,
-      count: count,
-      time: "11:33",
-    };
-    setChatLog([...chatLog, newChat]);
-    setChatContent("");
+    if (chatContent === "") {
+      return;
+    } else {
+      setCount((x) => x + 1);
+      const newChat = {
+        content: chatContent,
+        sender: nowUser,
+        count: count,
+        time: "11:33",
+      };
+      setChatLog([...chatLog, newChat]);
+      setChatContent("");
+    }
   };
 
   return (
