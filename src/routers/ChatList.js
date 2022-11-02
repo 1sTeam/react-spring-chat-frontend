@@ -37,6 +37,10 @@ function ChatList() {
     }
   }, []);
 
+  const goMakeRoom = () => {
+    navigate("/makeRoom");
+  };
+
   return (
     <div style={Style}>
       <Header title="Whatsup" backBtn={false} etcBtn={false} />
@@ -52,7 +56,9 @@ function ChatList() {
           />
         ))}
       </div>
-      <button className="btnMake">+</button>
+      <button className="btnMake" onClick={goMakeRoom}>
+        +
+      </button>
     </div>
   );
 }

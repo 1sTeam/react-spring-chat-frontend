@@ -3,10 +3,17 @@ import Login from "./routers/Login";
 import SignUp from "./routers/SignUp";
 import ChatList from "./routers/ChatList";
 import ChatRoom from "./routers/ChatRoom";
+import MakeRoom from "./routers/MakeRoom";
 
 function App() {
-  const pathNames = ["/", "login", "signUp", "chatRoom"];
-  const components = [<ChatList />, <Login />, <SignUp />, <ChatRoom />];
+  const pathNames = ["/", "login", "signUp", "chatRoom", "makeRoom"];
+  const components = [
+    <ChatList />,
+    <Login />,
+    <SignUp />,
+    <ChatRoom />,
+    <MakeRoom />,
+  ];
   return (
     <Routes>
       {pathNames.map((path, index) => (
