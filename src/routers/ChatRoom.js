@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import ChatBubble from "../components/ChatBubble";
 import "../css/ChatRoom.css";
+import { AiOutlineSend } from "react-icons/ai";
 
 function ChatRoom() {
   const [chatContent, setChatContent] = useState("");
@@ -59,7 +60,7 @@ function ChatRoom() {
           name="talk"
           onChange={onChange}
         />
-        <input className="contentSubmit" type="submit" value=">" />
+        <input className="contentSubmit" type="submit" value={">"} />
       </form>
     </div>
   );

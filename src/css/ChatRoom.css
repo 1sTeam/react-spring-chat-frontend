@@ -1,31 +1,29 @@
+.chatLogList {
+  width: 100%;
+}
+
 .chatInput {
   display: flex;
   justify-content: center;
-  padding: 4px;
-  width: 100%;
+  gap: 8px;
+  padding: 14px;
+  width: 92%;
   height: 5%;
   position: fixed;
   bottom: 0;
   left: 0;
 }
-
-.chatLogList {
-  width: 100%;
-}
-
 .contentInput {
-  width: 70%;
-  border-radius: 15px;
-  border: 1px #bbbbbb solid;
-  padding-left: 12px;
-  padding-right: 10px;
-  margin-right: 4%;
+  flex-grow: 4;
+  border: 1px #d2daff solid;
+  border-radius: 12px;
+  padding-left: 10px;
 }
 .contentSubmit {
-  width: 10%;
-  background-color: #7fa1f3;
+  flex-grow: 1;
+  font-size: 22px;
+  color: white;
+  background-color: #b1b2ff;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  color: aliceblue;
+  border-radius: 12px;
 }
