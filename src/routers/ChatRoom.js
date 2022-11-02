@@ -36,13 +36,14 @@ function ChatRoom() {
   const onSubmit = (e) => {
     e.preventDefault();
     setCount((x) => x + 1);
-    const newContent = {
-      content: { chatContent },
-      sender: { nowUser },
-      count: { count },
+    const newChat = {
+      content: chatContent,
+      sender: nowUser,
+      count: count,
       time: "11:33",
     };
-    setChatLog({ ...chatLog, newContent });
+    setChatLog([...chatLog, newChat]);
+    setChatContent("");
   };
 
   return (
@@ -50,7 +51,11 @@ function ChatRoom() {
       <Header title={nowUser} backBtn={true} etcBtn={true} />
       <div className="chatLogList">
         {chatLog.map((chatLog) => (
-          <ChatBubble key={chatLog.count} chatLog={chatLog} nowUser={nowUser} />
+          <ChatBubble
+            key={chatLog.sender + chatLog.count}
+            chatLog={chatLog}
+            nowUser={nowUser}
+          />
         ))}
       </div>
       <form className="chatInput" onSubmit={onSubmit}>
@@ -59,6 +64,7 @@ function ChatRoom() {
           type="text"
           name="talk"
           onChange={onChange}
+          value={chatContent}
         />
         <input className="contentSubmit" type="submit" value={">"} />
       </form>
