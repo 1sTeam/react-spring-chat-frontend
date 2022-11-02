@@ -71,7 +71,7 @@ function Login() {
             onChange={onChangeState}
           />
         </div>
-        <input className="loginSubmit" type="submit" value="Login" />
+        <input className="loginSubmit" type="submit" value="Sign in" />
         <div className="signUpBox">
           Don't have an account?
           <button className="signUpBtn" onClick={goSignUp}>

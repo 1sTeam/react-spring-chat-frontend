@@ -5,7 +5,7 @@
   align-items: center;
 }
 .logo {
-  color: green;
+  color: #b1b2ff;
   font-size: 35vh;
 }
 
@@ -53,6 +53,9 @@
   margin: 4px;
   border-radius: 16px;
   border: none;
+  background-color: #b1b2ff;
+  color: white;
+  font-weight: bold;
 }
 
 .signUpBox {
@@ -61,6 +64,6 @@
 .signUpBtn {
   border: none;
   background-color: white;
-  color: green;
+  color: #aac4ff;
   text-decoration: underline;
 }
