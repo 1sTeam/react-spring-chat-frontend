@@ -5,16 +5,23 @@
 
 .chatRoomInfo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dddddd;
   padding: 6px;
 }
-
 .chatRoomInfo:hover {
   background-color: #dfdfdf;
 }
 
+.chatPersonIcon {
+  flex-grow: 1;
+  color: #b1b2ff;
+  font-size: 28px;
+}
+
+.chatRoomContext {
+  flex-grow: 4;
+}
 .chatRoomName {
   font-size: var(--font-chatRoomName-size);
   font-weight: bold;
@@ -33,9 +40,10 @@
 .chatOption {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: right;
   align-items: center;
   padding-right: 4px;
+  flex-grow: 1;
 }
 
 .alarm {
