@@ -11,14 +11,13 @@
 
 .loginForm {
   height: 45vh;
-  padding: 10px;
   text-align: center;
 }
 
 .signText {
   font-weight: bold;
   font-size: 20px;
-  padding: 14px;
+  padding: 12px;
 }
 
 .loginBox {
@@ -47,15 +46,16 @@
 }
 
 .loginSubmit {
-  height: 12%;
-  width: 90%;
-  padding: 8px;
-  margin: 4px;
+  border: none;
+  width: 92%;
+  height: 38px;
   border-radius: 16px;
   border: none;
-  background-color: #b1b2ff;
+  padding: 6px;
+  margin: 4px 14px 0px 14px;
   color: white;
-  font-weight: bold;
+  background-color: #b1b2ff;
+  font-size: 16px;
 }
 
 .signUpBox {

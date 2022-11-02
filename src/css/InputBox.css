@@ -1,6 +1,7 @@
 .inputContent {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 2px 8px;
   margin: 6px;
 }
@@ -12,6 +13,7 @@
 }
 .inputBox {
   height: 28px;
+  width: 96%;
   border-radius: 16px;
   border: 1px #d2daff solid;
   padding-left: 10px;
