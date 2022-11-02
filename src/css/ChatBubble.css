@@ -7,12 +7,12 @@
 }
 
 .bubble.me {
-  background-color: #6f90f2;
+  background-color: #b1b2ff;
   text-align: right;
   margin-left: auto;
 }
 .bubble.you {
-  background-color: #b5b5b5;
+  background-color: #eef1ff;
 }
 
 .time {
