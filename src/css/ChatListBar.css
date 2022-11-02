@@ -1,0 +1,24 @@
+.listBar {
+  display: flex;
+  height: 40px;
+  padding: 2px;
+  margin-top: 10px;
+  border-top: 1px #eef1ff solid;
+  align-items: center;
+}
+
+.barLogo {
+  flex-grow: 1;
+  color: #b1b2ff;
+  font-weight: bold;
+}
+.barTitle {
+  flex-grow: 3;
+}
+.barCount {
+  flex-grow: 1;
+  color: #b1b2ff;
+  text-align: right;
+  margin-right: 2px;
+  font-weight: bold;
+}

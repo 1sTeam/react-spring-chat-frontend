@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { AiOutlineEllipsis, AiOutlineLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import styles from "../css/Header.css";
+import "../css/Header.css";
 
 function Header({ title, backBtn, etcBtn }) {
   const navigate = useNavigate();

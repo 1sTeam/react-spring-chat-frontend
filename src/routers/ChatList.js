@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import ChatListItem from "../components/ChatListItem";
+import ChatListBar from "../components/ChatListBar";
 import Style from "../css/ChatList.css";
 
 function ChatList() {
+  const [roomCount, setRoomCount] = useState(3);
   const [chatInfo, setChatInfo] = useState([
     {
       chatRoomName: "user1",
@@ -38,6 +40,7 @@ function ChatList() {
   return (
     <div style={Style}>
       <Header title="Whatsup" backBtn={false} etcBtn={false} />
+      <ChatListBar roomCount={roomCount} />
       <div className="chatList">
         {chatInfo.map((g) => (
           <ChatListItem
