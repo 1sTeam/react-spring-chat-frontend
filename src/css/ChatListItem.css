@@ -27,11 +27,14 @@
 .currentTime {
   font-size: 6px;
   color: #9f9f9f;
-  padding-bottom: 2px;
+  padding-bottom: 6px;
 }
 
 .chatOption {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding-right: 4px;
 }
 

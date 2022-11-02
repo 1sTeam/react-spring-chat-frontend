@@ -1,12 +1,13 @@
-#btnMake {
-  background-color: #4f4fff;
-  width: 35px;
-  height: 35px;
+.btnMake {
+  background-color: #b1b2ff;
+  color: white;
+  width: 46px;
+  height: 46px;
   border-radius: 20px;
   border: none;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
   font-size: 28px;
 }
 

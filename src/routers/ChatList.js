@@ -49,7 +49,7 @@ function ChatList() {
           />
         ))}
       </div>
-      <button id="btnMake">+</button>
+      <button className="btnMake">+</button>
     </div>
   );
 }
