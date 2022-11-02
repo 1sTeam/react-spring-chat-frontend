@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineWechat } from "react-icons/ai";
 import "../css/Login.css";
 
 function Login() {
@@ -37,7 +38,9 @@ function Login() {
 
   return (
     <div>
-      <div className="logo">로고</div>
+      <div className="titleLogo">
+        <AiOutlineWechat className="logo" />
+      </div>
       <form className="loginForm" onSubmit={onSubmit}>
         <div className="signText">Sign in to your account</div>
         <div className="loginBox">
@@ -69,8 +72,12 @@ function Login() {
           />
         </div>
         <input className="loginSubmit" type="submit" value="Login" />
-        <br />
-        <button onClick={goSignUp}>회원가입</button>
+        <div className="signUpBox">
+          Don't have an account?
+          <button className="signUpBtn" onClick={goSignUp}>
+            Sign up
+          </button>
+        </div>
       </form>
     </div>
   );

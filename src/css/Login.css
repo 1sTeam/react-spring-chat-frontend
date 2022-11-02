@@ -1,5 +1,12 @@
-.logo {
+.titleLogo {
   height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  color: green;
+  font-size: 35vh;
 }
 
 .loginForm {
@@ -16,7 +23,6 @@
 
 .loginBox {
   text-align: left;
-  padding-left: 5%;
 }
 .labelText {
   padding-left: 16px;
@@ -41,8 +47,20 @@
 }
 
 .loginSubmit {
-  height: 8%;
+  height: 12%;
   width: 90%;
   padding: 8px;
   margin: 4px;
+  border-radius: 16px;
+  border: none;
+}
+
+.signUpBox {
+  padding: 8px;
+}
+.signUpBtn {
+  border: none;
+  background-color: white;
+  color: green;
+  text-decoration: underline;
 }
