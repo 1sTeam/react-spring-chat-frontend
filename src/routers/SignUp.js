@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import InputBox from "../components/InputBox";
 import "../css/SignUp.css";
@@ -10,7 +11,6 @@ function SignUp() {
     id: "",
     pwd: "",
     nickname: "",
-    email: "",
   });
   const [chkPwd, setchkPwd] = useState("unKnown");
 
@@ -19,7 +19,6 @@ function SignUp() {
     { type: "password", inputName: "pwd", text: "비밀번호" },
     { type: "password", inputName: "chkpassword", text: "비밀번호 재확인" },
     { type: "text", inputName: "nickname", text: "닉네임" },
-    { type: "text", inputName: "email", text: "이메일" },
   ];
 
   const onChangeState = (e) => {
@@ -38,13 +37,20 @@ function SignUp() {
     if (
       newAccount.id === "" ||
       newAccount.pwd === "" ||
-      newAccount.nickname === "" ||
-      newAccount.email === ""
+      newAccount.nickname === ""
     ) {
       alert("모든 항목을 채워주세요");
     } else if (chkPwd !== newAccount.pwd) {
       alert("비밀번호를 확인하세요");
     } else {
+      axios
+        .post("http://54.215.135.43:8080/api/auth/register", {
+          email: newAccount.id,
+          password: newAccount.pwd,
+          username: newAccount.nickname,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
       //계정 생성
       alert("계정이 생성되었습니다.");
       console.log(newAccount);

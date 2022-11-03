@@ -1,26 +1,26 @@
+import axios from "axios";
 import { useState } from "react";
 import Header from "../components/Header";
-import UserListItem from "../components/UserListItem";
 
 function MakeRoom() {
-  const [chosenUser, setChosenUser] = useState("");
-  const [userList, setUserList] = useState([
-    { userName: "user1", checked: false },
-    { userName: "user2", checked: false },
-    { userName: "user3", checked: false },
-    { userName: "user4", checked: false },
-  ]);
+  const [roomName, setRoomName] = useState("");
+
+  const onChangeState = (e) => {
+    setRoomName(e.target.value);
+  };
+
+  const handleClick = () => {
+    axios
+      .post("http://54.215.135.43:8080/api/chat/room", { name: roomName })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <Header title="대화상대 선택" backBtn={true} etcBtn={true} />
 
-      {userList.map((user) => (
-        <UserListItem
-          userName={user.userName}
-          chosenUser={chosenUser}
-          setChosenUser={setChosenUser}
-        />
-      ))}
+      <input type="text" value={roomName} onChange={onChangeState} />
+      <button onClick={handleClick}>생성</button>
     </div>
   );
 }

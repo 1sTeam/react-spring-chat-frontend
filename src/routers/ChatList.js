@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import ChatListItem from "../components/ChatListItem";
@@ -7,34 +8,29 @@ import Style from "../css/ChatList.css";
 
 function ChatList() {
   const [roomCount, setRoomCount] = useState(3);
-  const [chatInfo, setChatInfo] = useState([
-    {
-      chatRoomName: "user1",
-      currentTalk: "배고파",
-      currentTime: "11:31",
-      isChecked: false,
-    },
-    {
-      chatRoomName: "user2",
-      currentTalk: "안배고파",
-      currentTime: "11:31",
-      isChecked: false,
-    },
-    {
-      chatRoomName: "user3",
-      currentTalk: "집 갈래",
-      currentTime: "11:32",
-      isChecked: true,
-    },
-  ]);
+  const [chatList, setChatList] = useState([]);
 
   const navigate = useNavigate();
   const [signedUp, setSignedUp] = useState(true);
+
+  if (localStorage.getItem("accessToken") === null) {
+  }
 
   useEffect(() => {
     if (!signedUp) {
       navigate("/login");
     }
+
+    axios
+      .get("http://54.215.135.43:8080/api/chat/rooms")
+      .then((res) => {
+        console.log(res);
+        setChatList(res.data.data);
+        JSON.stringify(chatList);
+        setRoomCount(chatList.length);
+      })
+      .then(() => console.log(chatList))
+      .catch((err) => console.log(err));
   }, []);
 
   const goMakeRoom = () => {
@@ -46,14 +42,8 @@ function ChatList() {
       <Header title="Whatsup" backBtn={false} etcBtn={false} />
       <ChatListBar roomCount={roomCount} />
       <div className="chatList">
-        {chatInfo.map((g) => (
-          <ChatListItem
-            key={g.chatRoomName}
-            chatRoomName={g.chatRoomName}
-            currentTalk={g.currentTalk}
-            currentChat={g.currentTime}
-            isChecked={g.isChecked}
-          />
+        {chatList.map((chat) => (
+          <ChatListItem key={chat.name} chatRoomName={chat.name} />
         ))}
       </div>
       <button className="btnMake" onClick={goMakeRoom}>
