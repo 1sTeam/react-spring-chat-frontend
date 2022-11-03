@@ -17,7 +17,7 @@ function App() {
   return (
     <Routes>
       {pathNames.map((path, index) => (
-        <Route path={path} element={components[index]} />
+        <Route key={`path_${index}`} path={path} element={components[index]} />
       ))}
     </Routes>
   );
