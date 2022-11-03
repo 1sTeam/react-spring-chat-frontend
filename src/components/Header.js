@@ -21,7 +21,7 @@ function Header({ title, backBtn, etcBtn }) {
         {title === "대화상대 선택" ? <AiOutlineClose /> : <AiOutlineLeft />}
       </button>
       <div className="headerTitle">{title}</div>
-      <button className="etc">
+      <button className="etc" onClick={goBack}>
         {title === "대화상대 선택" ? <AiOutlineCheck /> : <AiOutlineEllipsis />}
       </button>
     </div>
