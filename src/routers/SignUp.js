@@ -12,7 +12,7 @@ function SignUp() {
     nickname: "",
     email: "",
   });
-  const [chkPwd, setchkPwd] = useState("");
+  const [chkPwd, setchkPwd] = useState("unKnown");
 
   const InputBoxList = [
     { type: "text", inputName: "id", text: "ID" },
@@ -35,7 +35,14 @@ function SignUp() {
 
   const onMakeAccount = (e) => {
     e.preventDefault();
-    if (chkPwd !== newAccount.pwd) {
+    if (
+      newAccount.id === "" ||
+      newAccount.pwd === "" ||
+      newAccount.nickname === "" ||
+      newAccount.email === ""
+    ) {
+      alert("모든 항목을 채워주세요");
+    } else if (chkPwd !== newAccount.pwd) {
       alert("비밀번호를 확인하세요");
     } else {
       //계정 생성
