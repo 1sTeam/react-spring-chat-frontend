@@ -2,7 +2,7 @@ import "../css/ChatListItem.css";
 import { useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
 
-function ChatListItem({ chatRoomName, currentTalk, currentChat, isChecked }) {
+function ChatListItem({ chatRoomName }) {
   const navigate = useNavigate();
   const goChatRoom = () => {
     navigate("/ChatRoom");
@@ -12,12 +12,11 @@ function ChatListItem({ chatRoomName, currentTalk, currentChat, isChecked }) {
       <BsFillPersonFill className="chatPersonIcon" />
       <div className="chatRoomContext">
         <div className="chatRoomName">{chatRoomName}</div>
-        <div className="currentTalk">{currentTalk}</div>
       </div>
-      <div className="chatOption">
+      {/* <div className="chatOption">
         <div className="currentTime">{currentChat}</div>
         <div className={`alarm ${isChecked ? "checked" : ""}`}></div>
-      </div>
+      </div> */}
     </div>
   );
 }
