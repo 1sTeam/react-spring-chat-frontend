@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineWechat } from "react-icons/ai";
 import InputBox from "../components/InputBox";
 import "../css/Login.css";
+import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
@@ -28,15 +29,33 @@ function Login() {
       return;
     }
 
-    if (account.password !== userPassword) {
-      alert("비밀번호가 틀렸습니다!!");
-      e.target.passWord.value = "";
-      return;
-    }
+    axios
+      .post("http://54.215.135.43:8080/api/auth/login", {
+        email: account.ID,
+        password: account.password,
+      })
+      .then((res) => {
+        console.log(res);
+        // navigate("/")
+      })
+      .catch((err) => {
+        if (err.response.status === "403") {
+          alert("아이디 또는 비밀번호가 틀렸습니다.");
+          setAccount({ ID: "", password: "" });
+          return;
+        }
+        console.log("error!!");
+      });
 
-    console.log(account);
-    alert("성공");
-    navigate("/");
+    // if (account.password !== userPassword) {
+    //   alert("비밀번호가 틀렸습니다!!");
+    //   e.target.passWord.value = "";
+    //   return;
+    // }
+
+    // console.log(account);
+    // alert("성공");
+    // navigate("/");
   };
 
   const goSignUp = () => {
