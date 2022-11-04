@@ -8,6 +8,7 @@
   align-items: center;
   border-bottom: 1px solid #dddddd;
   padding: 6px;
+  height: 40px;
 }
 .chatRoomInfo:hover {
   background-color: #dfdfdf;

@@ -9,10 +9,10 @@
 .inputLabel {
   padding: 2px;
   padding-left: 8px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .inputBox {
-  height: 28px;
+  height: 36px;
   width: 96%;
   border-radius: 16px;
   border: 1px #d2daff solid;

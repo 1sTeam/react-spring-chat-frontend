@@ -7,7 +7,7 @@ import ChatListBar from "../components/ChatListBar";
 import Style from "../css/ChatList.css";
 
 function ChatList() {
-  const [roomCount, setRoomCount] = useState(3);
+  const [roomCount, setRoomCount] = useState(0);
   const [chatList, setChatList] = useState([]);
 
   const navigate = useNavigate();
@@ -27,11 +27,15 @@ function ChatList() {
         console.log(res);
         setChatList(res.data.data);
         JSON.stringify(chatList);
-        setRoomCount(chatList.length);
       })
-      .then(() => console.log(chatList))
+      .then(() => {
+        console.log(chatList);
+      })
       .catch((err) => console.log(err));
   }, []);
+  useEffect(() => {
+    setRoomCount(chatList.length);
+  }, [chatList]);
 
   const goMakeRoom = () => {
     navigate("/makeRoom");
@@ -39,7 +43,7 @@ function ChatList() {
 
   return (
     <div style={Style}>
-      <Header title="Whatsup" backBtn={false} etcBtn={false} />
+      <Header title="Whatsup" backBtn={false} etcBtn={true} />
       <ChatListBar roomCount={roomCount} />
       <div className="chatList">
         {chatList.map((chat) => (

@@ -36,7 +36,7 @@ function Login() {
       })
       .then((res) => {
         console.log(res);
-        // navigate("/")
+        navigate("/");
       })
       .catch((err) => {
         if (err.response.status === "403") {

@@ -4,6 +4,7 @@
   padding: 6px;
   margin-top: 10px;
   border-top: 1px #eef1ff solid;
+  margin-left: 6px;
   align-items: center;
 }
 
@@ -11,9 +12,12 @@
   flex-grow: 1;
   color: #b1b2ff;
   font-weight: bold;
+  font-size: 28px;
 }
 .barTitle {
   flex-grow: 3;
+  font-size: 18px;
+  margin-left: 8px;
 }
 .barCount {
   flex-grow: 1;
@@ -21,4 +25,5 @@
   text-align: center;
   margin-right: 2px;
   font-weight: bold;
+  font-size: 20px;
 }

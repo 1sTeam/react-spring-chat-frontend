@@ -11,6 +11,7 @@ function InputBox({ box, onChangeState }) {
         type={box.type}
         name={box.inputName}
         onChange={onChangeState}
+        autoComplete="off"
       />
     </div>
   );

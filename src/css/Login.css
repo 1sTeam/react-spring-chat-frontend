@@ -1,5 +1,5 @@
 .titleLogo {
-  height: 55vh;
+  height: 45vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,60 +10,37 @@
 }
 
 .loginForm {
-  height: 45vh;
+  height: 50vh;
   text-align: center;
 }
 
 .signText {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 24px;
   padding: 12px;
-}
-
-.loginBox {
-  text-align: left;
-}
-.labelText {
-  padding-left: 16px;
-  font-size: 12px;
-  font-weight: 500;
-}
-.loginID {
-  height: 8%;
-  width: 90%;
-  padding: 8px;
-  margin: 4px;
-  border-radius: 16px;
-  border: 1px #9f9f9f solid;
-}
-.loginPwd {
-  height: 8%;
-  width: 90%;
-  padding: 8px;
-  margin: 4px;
-  border-radius: 16px;
-  border: 1px #9f9f9f solid;
 }
 
 .loginSubmit {
   border: none;
   width: 92%;
-  height: 38px;
+  height: 50px;
   border-radius: 16px;
   border: none;
   padding: 6px;
-  margin: 4px 14px 0px 14px;
+  margin: 8px 14px 0px 14px;
   color: white;
   background-color: #b1b2ff;
-  font-size: 16px;
+  font-size: 26px;
 }
 
 .signUpBox {
   padding: 8px;
+  font-size: 16px;
 }
 .signUpBtn {
   border: none;
   background-color: white;
   color: #aac4ff;
   text-decoration: underline;
+  font-size: 16px;
 }

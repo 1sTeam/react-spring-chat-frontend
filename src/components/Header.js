@@ -16,13 +16,13 @@ function Header({ title, backBtn, etcBtn }) {
   };
 
   return (
-    <div className="top">
+    <div className={`top ${etcBtn ? "" : "unseen"}`}>
       <button className={`back ${backBtn ? "" : "unseen"}`} onClick={goBack}>
-        {title === "대화상대 선택" ? <AiOutlineClose /> : <AiOutlineLeft />}
+        {title === "Make Room" ? <AiOutlineClose /> : <AiOutlineLeft />}
       </button>
-      <div className="headerTitle">{title}</div>
-      <button className="etc" onClick={goBack}>
-        {title === "대화상대 선택" ? <AiOutlineCheck /> : <AiOutlineEllipsis />}
+      <div className={`headerTitle ${etcBtn ? "" : "unseen"}`}>{title}</div>
+      <button className={`etc ${etcBtn ? "" : "unseen"}`} onClick={goBack}>
+        <AiOutlineEllipsis />
       </button>
     </div>
   );

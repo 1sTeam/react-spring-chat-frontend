@@ -1,9 +1,13 @@
 import axios from "axios";
+import "../css/MakeRoom.css";
 import { useState } from "react";
 import Header from "../components/Header";
+import InputBox from "../components/InputBox";
+import { useNavigate } from "react-router-dom";
 
 function MakeRoom() {
   const [roomName, setRoomName] = useState("");
+  const navigate = useNavigate();
 
   const onChangeState = (e) => {
     setRoomName(e.target.value);
@@ -12,15 +16,27 @@ function MakeRoom() {
   const handleClick = () => {
     axios
       .post("http://54.215.135.43:8080/api/chat/room", { name: roomName })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+      })
       .catch((err) => console.log(err));
   };
   return (
     <div>
-      <Header title="대화상대 선택" backBtn={true} etcBtn={true} />
+      <Header title="Make Room" backBtn={true} etcBtn={false} />
 
-      <input type="text" value={roomName} onChange={onChangeState} />
-      <button onClick={handleClick}>생성</button>
+      <InputBox
+        box={{
+          type: "text",
+          inputName: "roomName",
+          text: "원하는 방 이름을 입력하세요.",
+        }}
+        onChangeState={onChangeState}
+      />
+      <button onClick={handleClick} className="createRoomBtn">
+        생성
+      </button>
     </div>
   );
 }

@@ -7,12 +7,25 @@
   top: 0;
   left: 0;
   margin-top: 5px;
-
-  font-size: 20px;
+  padding-left: 8px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.top.unseen {
+  width: 100%;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  padding-left: 8px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .back {
   background-color: white;
+
   font-weight: bold;
   border: none;
   margin: 8px;
@@ -25,9 +38,15 @@
   margin: 8px;
   font-weight: 500;
 }
+.headerTitle.unseen {
+  margin-right: 110px;
+}
 
 .etc {
   background-color: white;
   border: none;
   margin: 8px;
+}
+.etc.unseen {
+  display: none;
 }
