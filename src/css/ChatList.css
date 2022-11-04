@@ -1,0 +1,20 @@
+.btnMake {
+  background-color: #b1b2ff;
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 20px;
+  border: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  font-size: 28px;
+}
+
+.chatList {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+.chatList::-webkit-scrollbar {
+  display: none;
+}

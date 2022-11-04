@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Login from "./routers/Login";
+import SignUp from "./routers/SignUp";
+import ChatList from "./routers/ChatList";
+import ChatRoom from "./routers/ChatRoom";
+import MakeRoom from "./routers/MakeRoom";
 
 function App() {
+  const pathNames = ["/", "login", "signUp", "chatRoom", "makeRoom"];
+  const components = [
+    <ChatList />,
+    <Login />,
+    <SignUp />,
+    <ChatRoom />,
+    <MakeRoom />,
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {pathNames.map((path, index) => (
+        <Route key={`path_${index}`} path={path} element={components[index]} />
+      ))}
+    </Routes>
   );
 }
 

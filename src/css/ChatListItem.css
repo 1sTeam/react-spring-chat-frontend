@@ -1,0 +1,59 @@
+:root {
+  --font-chatRoomName-size: 20px;
+  --font-currentTalk-size: 14px;
+}
+
+.chatRoomInfo {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  padding: 6px;
+  height: 40px;
+}
+.chatRoomInfo:hover {
+  background-color: #dfdfdf;
+}
+
+.chatPersonIcon {
+  flex-grow: 1;
+  color: #b1b2ff;
+  font-size: 28px;
+}
+
+.chatRoomContext {
+  flex-grow: 4;
+}
+.chatRoomName {
+  font-size: var(--font-chatRoomName-size);
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+.currentTalk {
+  font-size: var(--font-currentTalk-size);
+}
+
+.currentTime {
+  font-size: 6px;
+  color: #9f9f9f;
+  padding-bottom: 6px;
+}
+
+.chatOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  padding-right: 4px;
+  flex-grow: 1;
+}
+
+.alarm {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background-color: red;
+}
+.alarm.checked {
+  display: none;
+}

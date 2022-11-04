@@ -1,0 +1,46 @@
+.titleLogo {
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  color: #b1b2ff;
+  font-size: 35vh;
+}
+
+.loginForm {
+  height: 50vh;
+  text-align: center;
+}
+
+.signText {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 12px;
+}
+
+.loginSubmit {
+  border: none;
+  width: 92%;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  padding: 6px;
+  margin: 8px 14px 0px 14px;
+  color: white;
+  background-color: #b1b2ff;
+  font-size: 26px;
+}
+
+.signUpBox {
+  padding: 8px;
+  font-size: 16px;
+}
+.signUpBtn {
+  border: none;
+  background-color: white;
+  color: #aac4ff;
+  text-decoration: underline;
+  font-size: 16px;
+}

@@ -1,0 +1,13 @@
+.createRoomBtn {
+  text-align: center;
+  border: none;
+  width: 86%;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  padding: 6px;
+  margin: 8px 14px 0px 24px;
+  color: white;
+  background-color: #b1b2ff;
+  font-size: 26px;
+}

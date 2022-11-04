@@ -1,0 +1,21 @@
+.bubble {
+  width: 60%;
+  padding: 6px;
+  margin: 8px;
+  border-radius: 5px;
+  display: flexbox;
+}
+
+.bubble.me {
+  background-color: #b1b2ff;
+  text-align: right;
+  margin-left: auto;
+}
+.bubble.you {
+  background-color: #eef1ff;
+}
+
+.time {
+  font-size: 10px;
+  color: #555555;
+}
