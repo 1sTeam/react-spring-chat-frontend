@@ -6,7 +6,7 @@ import ChatListItem from "../components/ChatListItem";
 import ChatListBar from "../components/ChatListBar";
 import Style from "../css/ChatList.css";
 
-function ChatList() {
+function ChatList({ setNowChatRoomName }) {
   const [roomCount, setRoomCount] = useState(0);
   const [chatList, setChatList] = useState([]);
 
@@ -47,7 +47,11 @@ function ChatList() {
       <ChatListBar roomCount={roomCount} />
       <div className="chatList">
         {chatList.map((chat) => (
-          <ChatListItem key={chat.name} chatRoomName={chat.name} />
+          <ChatListItem
+            key={chat.name}
+            chatRoomName={chat.name}
+            setNowChatRoomName={setNowChatRoomName}
+          />
         ))}
       </div>
       <button className="btnMake" onClick={goMakeRoom}>

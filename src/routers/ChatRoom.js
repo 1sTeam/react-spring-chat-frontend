@@ -7,7 +7,7 @@ import * as Stomp from "stompjs";
 
 const SERVER_NAME = "http://localhost:3030";
 
-function ChatRoom() {
+function ChatRoom({ nowChatRoomName }) {
   const [stompClient, setStompClient] = useState(null);
   const [chatContent, setChatContent] = useState("");
   const [count, setCount] = useState(3);
@@ -132,7 +132,7 @@ function ChatRoom() {
 
   return (
     <div>
-      <Header title={nowUser} backBtn={true} etcBtn={true} />
+      <Header title={nowChatRoomName} backBtn={true} etcBtn={true} />
       <div className="chatLogList">
         {chatLog.map((chatLog) => (
           <ChatBubble
