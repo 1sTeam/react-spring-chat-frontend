@@ -12,6 +12,11 @@ function InputBox({ box, onChangeState }) {
         name={box.inputName}
         onChange={onChangeState}
         autoComplete="off"
+        placeholder={
+          box.inputName === "id" || box.inputName === "ID"
+            ? "이메일 형식으로 입력해주세요"
+            : ""
+        }
       />
     </div>
   );
