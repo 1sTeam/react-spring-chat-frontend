@@ -1,14 +1,24 @@
 import { useState } from "react";
+import axios from "axios";
 import { AiOutlineClose, AiOutlineLeft } from "react-icons/ai";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsTrashFill } from "react-icons/bs";
+
 import { useNavigate } from "react-router-dom";
+import OptionBtn from "../components/OptionBtn";
 import "../css/Header.css";
 
-function Header({ title, backBtn, etcBtn }) {
+function Header({ title, roomUuid, backBtn, etcBtn }) {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
+  const handleDeleteRoom = (e) => {
+    e.preventDefault();
+    alert(`${roomUuid} 방을 삭제합니다.`);
+    axios
+      .delete(`http://54.215.135.43:8080/api/chat/room/${roomUuid}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    navigate(-1);
+  };
   const goBack = (e) => {
     e.preventDefault();
     navigate(-1);
@@ -24,16 +34,19 @@ function Header({ title, backBtn, etcBtn }) {
         {title === "Make Room" ? <AiOutlineClose /> : <AiOutlineLeft />}
       </button>
       <div className={`headerTitle ${etcBtn ? "" : "unseen"}`}>{title}</div>
-      <div>
-        <button className={`trashBtn ${isChecked ? "" : "unseen"}`}>
-          <BsTrashFill />
-        </button>
-        <button
-          className={`etc ${etcBtn ? "" : "unseen"}`}
-          onClick={showOption}
-        >
-          <GiHamburgerMenu />
-        </button>
+      <div className={`options ${etcBtn ? "" : "unseen"}`}>
+        <OptionBtn
+          btnName="myPageBtn"
+          seen={title === "Whatsup" && isChecked}
+          handleClick={handleDeleteRoom}
+        />
+        <OptionBtn
+          btnName="trashBtn"
+          seen={title !== "Whatsup" && isChecked}
+          handleClick={handleDeleteRoom}
+        />
+
+        <OptionBtn btnName="etc" seen={etcBtn} handleClick={showOption} />
       </div>
     </div>
   );
