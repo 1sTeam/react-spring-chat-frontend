@@ -1,5 +1,5 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BsTrashFill } from "react-icons/bs";
+import { BsTrashFill, BsFillPersonFill } from "react-icons/bs";
 import "../css/OptionBtn.css";
 
 function OptionBtn({ btnName, seen, handleClick }) {
@@ -10,6 +10,7 @@ function OptionBtn({ btnName, seen, handleClick }) {
     >
       {btnName === "etc" ? <GiHamburgerMenu /> : ""}
       {btnName === "trashBtn" ? <BsTrashFill /> : ""}
+      {btnName === "myPageBtn" ? <BsFillPersonFill /> : ""}
     </button>
   );
 }
