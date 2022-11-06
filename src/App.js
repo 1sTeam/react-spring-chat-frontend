@@ -7,13 +7,22 @@ import MakeRoom from "./routers/MakeRoom";
 import { useState } from "react";
 
 function App() {
+  const [accessToken, setAccessToken] = useState("");
   const [nowChatRoomName, setNowChatRoomName] = useState("");
+  const [nowChatRoomuuid, setNowChatRoomuuid] = useState("");
   const pathNames = ["/", "login", "signUp", "chatRoom", "makeRoom"];
   const components = [
-    <ChatList setNowChatRoomName={setNowChatRoomName} />,
-    <Login />,
+    <ChatList
+      setNowChatRoomName={setNowChatRoomName}
+      setNowChatRoomuuid={setNowChatRoomuuid}
+      accessToken={accessToken}
+    />,
+    <Login setAccessToken={setAccessToken} />,
     <SignUp />,
-    <ChatRoom nowChatRoomName={nowChatRoomName} />,
+    <ChatRoom
+      nowChatRoomName={nowChatRoomName}
+      nowChatRoomuuid={nowChatRoomuuid}
+    />,
     <MakeRoom />,
   ];
   return (
