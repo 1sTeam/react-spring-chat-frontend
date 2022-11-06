@@ -7,7 +7,7 @@ import * as Stomp from "stompjs";
 
 const SERVER_NAME = "http://localhost:3030";
 
-function ChatRoom({ nowChatRoomName }) {
+function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
   const [stompClient, setStompClient] = useState(null);
   const [chatContent, setChatContent] = useState("");
   const [count, setCount] = useState(3);
@@ -132,7 +132,12 @@ function ChatRoom({ nowChatRoomName }) {
 
   return (
     <div>
-      <Header title={nowChatRoomName} backBtn={true} etcBtn={true} />
+      <Header
+        title={nowChatRoomName}
+        roomUuid={nowChatRoomuuid}
+        backBtn={true}
+        etcBtn={true}
+      />
       <div className="chatLogList">
         {chatLog.map((chatLog) => (
           <ChatBubble
@@ -149,6 +154,7 @@ function ChatRoom({ nowChatRoomName }) {
           name="talk"
           onChange={onChange}
           value={chatContent}
+          autoComplete="off"
         />
         <input className="contentSubmit" type="submit" value={">"} />
       </form>
