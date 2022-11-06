@@ -6,20 +6,20 @@ import ChatListItem from "../components/ChatListItem";
 import ChatListBar from "../components/ChatListBar";
 import Style from "../css/ChatList.css";
 
-function ChatList({ setNowChatRoomName }) {
+function ChatList({ setNowChatRoomName, setNowChatRoomuuid, accessToken }) {
   const [roomCount, setRoomCount] = useState(0);
   const [chatList, setChatList] = useState([]);
 
   const navigate = useNavigate();
   const [signedUp, setSignedUp] = useState(true);
 
-  if (localStorage.getItem("accessToken") === null) {
-  }
-
   useEffect(() => {
+    if (localStorage.getItem("accessToken") === null) {
+    }
     if (!signedUp) {
       navigate("/login");
     }
+    console.log(accessToken);
 
     axios
       .get("http://54.215.135.43:8080/api/chat/rooms")
@@ -50,7 +50,9 @@ function ChatList({ setNowChatRoomName }) {
           <ChatListItem
             key={chat.name}
             chatRoomName={chat.name}
+            roomUuid={chat.uuid}
             setNowChatRoomName={setNowChatRoomName}
+            setNowChatRoomuuid={setNowChatRoomuuid}
           />
         ))}
       </div>
