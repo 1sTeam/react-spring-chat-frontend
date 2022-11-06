@@ -35,6 +35,7 @@
 }
 
 .headerTitle {
+  padding-left: 18px;
   margin: 8px;
   font-weight: 500;
 }
@@ -42,29 +43,12 @@
   margin-right: 110px;
 }
 
-.trashBtn {
-  background-color: #eef1ff;
-  color: #b1b2ff;
-  border-radius: 8px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  font-weight: 2000;
+.options {
+  display: flex;
+  justify-content: right;
+  width: 80px;
+  text-align: right;
 }
-.trashBtn.unseen {
-  display: none;
-}
-
-.etc {
-  background-color: #eef1ff;
-  color: #b1b2ff;
-  border-radius: 8px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  font-weight: 2000;
-  margin: 8px;
-}
-.etc.unseen {
+.options.unseen {
   display: none;
 }

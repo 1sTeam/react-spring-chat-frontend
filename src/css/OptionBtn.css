@@ -12,6 +12,10 @@
   margin: 10px 6px 2px 0px;
 }
 
+.myPageBtn.unseen {
+  display: none;
+}
+
 .trashBtn.unseen {
   display: none;
 }
