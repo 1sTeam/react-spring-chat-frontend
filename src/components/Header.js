@@ -23,6 +23,10 @@ function Header({ title, roomUuid, backBtn, etcBtn }) {
     e.preventDefault();
     navigate(-1);
   };
+  const goMyPage = (e) => {
+    e.preventDefault();
+    navigate("/myPage");
+  };
   const showOption = (e) => {
     e.preventDefault();
     setIsChecked((x) => !isChecked);
@@ -31,14 +35,24 @@ function Header({ title, roomUuid, backBtn, etcBtn }) {
   return (
     <div className={`top ${etcBtn ? "" : "unseen"}`}>
       <button className={`back ${backBtn ? "" : "unseen"}`} onClick={goBack}>
-        {title === "Make Room" ? <AiOutlineClose /> : <AiOutlineLeft />}
+        {title === "Make Room" || title === "MyPage" ? (
+          <AiOutlineClose />
+        ) : (
+          <AiOutlineLeft />
+        )}
       </button>
-      <div className={`headerTitle ${etcBtn ? "" : "unseen"}`}>{title}</div>
+      <div
+        className={`headerTitle ${title === "MyPage" ? "myPages" : ""} ${
+          etcBtn ? "" : "unseen"
+        }`}
+      >
+        {title}
+      </div>
       <div className={`options ${etcBtn ? "" : "unseen"}`}>
         <OptionBtn
           btnName="myPageBtn"
           seen={title === "Whatsup" && isChecked}
-          handleClick={handleDeleteRoom}
+          handleClick={goMyPage}
         />
         <OptionBtn
           btnName="trashBtn"
