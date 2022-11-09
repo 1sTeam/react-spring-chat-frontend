@@ -1,0 +1,10 @@
+.InfoTitle {
+  font-size: 24px;
+  padding: 2px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.InfoIcon {
+  margin-left: 6px;
+}
