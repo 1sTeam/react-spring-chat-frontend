@@ -40,7 +40,10 @@
   font-weight: 500;
 }
 .headerTitle.unseen {
-  margin-right: 110px;
+  margin-right: 106px;
+}
+.headerTitle.myPages.unseen {
+  margin-right: 126px;
 }
 
 .options {
