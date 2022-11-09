@@ -39,6 +39,10 @@ function Login() {
       })
       .then((res) => {
         console.log(res);
+        const token = res.data.data;
+        JSON.stringify(token);
+        localStorage.setItem("token", token.accessToken);
+        console.log(localStorage.getItem("token"));
         navigate("/");
       })
       .catch((err) => {
