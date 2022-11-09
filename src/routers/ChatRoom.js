@@ -5,7 +5,7 @@ import "../css/ChatRoom.css";
 import SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
 
-const SERVER_NAME = "http://localhost:3030";
+const SERVER_NAME = "http://54.215.135.43:8080";
 
 function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
   const [stompClient, setStompClient] = useState(null);
@@ -40,15 +40,17 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
       const stompCli = Stomp.over(sockJS);
       setStompClient(stompCli);
       const headers = {
-        token: localStorage.getItem("accessToken"),
+        token: localStorage.getItem("token"),
       };
+
+      console.log(headers);
 
       stompCli.connect(
         headers,
         function (frame) {
           // 토큰 집어넣고
           console.log("connected: " + frame);
-          stompSubscribe("/topic/" + global.syncInfo.roomId, onResponseMessage); // 해당 방으로 구독 ->
+          stompSubscribe("/topic/" + nowChatRoomuuid, onResponseMessage); // 해당 방으로 구독 ->
           succ(true);
         },
         function (error) {
@@ -60,7 +62,7 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
 
   const stompSubscribe = (path, onResponseMessage) => {
     const headers = {
-      token: global.syncInfo.token,
+      token: localStorage.getItem("token"),
     };
 
     stompClient.subscribe(
