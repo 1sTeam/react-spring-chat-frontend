@@ -6,7 +6,7 @@ import ChatListItem from "../components/ChatListItem";
 import ChatListBar from "../components/ChatListBar";
 import Style from "../css/ChatList.css";
 
-function ChatList({ setNowChatRoomName, setNowChatRoomuuid, accessToken }) {
+function ChatList({ setNowChatRoomName, setNowChatRoomuuid }) {
   const [roomCount, setRoomCount] = useState(0);
   const [chatList, setChatList] = useState([]);
 
@@ -19,7 +19,6 @@ function ChatList({ setNowChatRoomName, setNowChatRoomuuid, accessToken }) {
     if (!signedUp) {
       navigate("/login");
     }
-    console.log(accessToken);
 
     axios
       .get("http://54.215.135.43:8080/api/chat/rooms")
