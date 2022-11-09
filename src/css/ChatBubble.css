@@ -8,6 +8,10 @@
   word-break: break-all;
 }
 
+.bubble.short {
+  width: 32%;
+}
+
 .bubble.me {
   background-color: #b1b2ff;
   text-align: right;
