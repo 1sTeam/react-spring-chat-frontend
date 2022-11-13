@@ -18,6 +18,7 @@
   font-weight: bold;
   font-size: 24px;
   padding: 12px;
+  font-family: KOFIHDrLEEJWTTF-B;
 }
 
 .loginSubmit {
@@ -27,20 +28,24 @@
   border-radius: 16px;
   border: none;
   padding: 6px;
+  padding-top: 14px;
   margin: 8px 14px 0px 14px;
   color: white;
   background-color: #b1b2ff;
   font-size: 26px;
+  font-family: GangwonEduPowerExtraBoldA;
 }
 
 .signUpBox {
   padding: 8px;
-  font-size: 16px;
+  font-size: 12px;
+  font-family: GmarketSansMedium;
 }
 .signUpBtn {
   border: none;
   background-color: white;
   color: #aac4ff;
   text-decoration: underline;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: GmarketSansMedium;
 }

@@ -8,11 +8,11 @@ import axios from "axios";
 function Login() {
   const navigate = useNavigate();
   const [account, setAccount] = useState({ ID: "", password: "" });
-  const [userPassword, setUserPassword] = useState("1234");
+  let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 
   const loginBoxList = [
     { type: "text", inputName: "ID", text: "ID" },
-    { type: "password", inputName: "password", text: "Password" },
+    { type: "password", inputName: "password", text: "비밀번호" },
   ];
 
   const onChangeState = (e) => {
@@ -27,6 +27,9 @@ function Login() {
     if (account.ID === "" || account.password === "") {
       alert("아이디 또는 비밀번호를 입력하세요");
       return;
+    } else if (!regex.test(account.ID)) {
+      alert("이메일 형식으로 입력해주세요!");
+      return;
     }
 
     axios
@@ -36,6 +39,10 @@ function Login() {
       })
       .then((res) => {
         console.log(res);
+        const token = res.data.data;
+        JSON.stringify(token);
+        localStorage.setItem("token", token.accessToken);
+        console.log(localStorage.getItem("token"));
         navigate("/");
       })
       .catch((err) => {

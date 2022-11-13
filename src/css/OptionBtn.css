@@ -1,0 +1,21 @@
+.optionBtn {
+  background-color: #eef1ff;
+  color: #b1b2ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-weight: 2000;
+  margin: 10px 6px 2px 0px;
+}
+
+.myPageBtn.unseen {
+  display: none;
+}
+
+.trashBtn.unseen {
+  display: none;
+}

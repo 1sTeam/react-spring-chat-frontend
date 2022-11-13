@@ -18,6 +18,7 @@
   flex-grow: 3;
   font-size: 18px;
   margin-left: 8px;
+  font-family: GmarketSansMedium;
 }
 .barCount {
   flex-grow: 1;

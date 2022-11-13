@@ -1,15 +1,22 @@
 import "../css/ChatListItem.css";
 import { useNavigate } from "react-router-dom";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsPeopleFill } from "react-icons/bs";
 
-function ChatListItem({ chatRoomName }) {
+function ChatListItem({
+  chatRoomName,
+  setNowChatRoomName,
+  setNowChatRoomuuid,
+  roomUuid,
+}) {
   const navigate = useNavigate();
   const goChatRoom = () => {
+    setNowChatRoomName(chatRoomName);
+    setNowChatRoomuuid(roomUuid);
     navigate("/ChatRoom");
   };
   return (
     <div className="chatRoomInfo" onClick={goChatRoom}>
-      <BsFillPersonFill className="chatPersonIcon" />
+      <BsPeopleFill className="chatPersonIcon" />
       <div className="chatRoomContext">
         <div className="chatRoomName">{chatRoomName}</div>
       </div>

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import InputBox from "../components/InputBox";
 import "../css/SignUp.css";
 import { AiOutlineSmile } from "react-icons/ai";
 
 function SignUp() {
   const navigate = useNavigate();
+  let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
   const [newAccount, setNewAccount] = useState({
     id: "",
     pwd: "",
@@ -40,6 +41,9 @@ function SignUp() {
       newAccount.nickname === ""
     ) {
       alert("모든 항목을 채워주세요");
+    } else if (!regex.test(newAccount.id)) {
+      alert("이메일 형식으로 입력해주세요!");
+      return;
     } else if (chkPwd !== newAccount.pwd) {
       alert("비밀번호를 확인하세요");
     } else {
@@ -49,7 +53,9 @@ function SignUp() {
           password: newAccount.pwd,
           username: newAccount.nickname,
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res);
+        })
         .catch((err) => console.log(err));
       //계정 생성
       alert("계정이 생성되었습니다.");

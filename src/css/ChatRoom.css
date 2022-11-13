@@ -1,23 +1,25 @@
 .chatLogList {
   width: 100%;
+  height: 528px;
+  overflow-x: scroll;
 }
 
 .chatInput {
+  background-color: white;
   display: flex;
   justify-content: center;
   gap: 8px;
   padding: 14px;
   width: 92%;
-  height: 5%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  height: 6%;
 }
 .contentInput {
   flex-grow: 4;
   border: 1px #d2daff solid;
   border-radius: 12px;
   padding-left: 10px;
+  padding-top: 4px;
+  font-size: 16px;
 }
 .contentSubmit {
   flex-grow: 1;

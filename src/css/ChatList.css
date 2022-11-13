@@ -1,14 +1,14 @@
 .btnMake {
   background-color: #b1b2ff;
   color: white;
-  width: 46px;
-  height: 46px;
-  border-radius: 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 28px;
   border: none;
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  font-size: 28px;
+  bottom: 30px;
+  right: 30px;
+  font-size: 40px;
 }
 
 .chatList {

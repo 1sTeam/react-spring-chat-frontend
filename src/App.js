@@ -4,15 +4,27 @@ import SignUp from "./routers/SignUp";
 import ChatList from "./routers/ChatList";
 import ChatRoom from "./routers/ChatRoom";
 import MakeRoom from "./routers/MakeRoom";
+import MyPage from "./routers/MyPage";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const pathNames = ["/", "login", "signUp", "chatRoom", "makeRoom"];
+  const [nowChatRoomName, setNowChatRoomName] = useState("");
+  const [nowChatRoomuuid, setNowChatRoomuuid] = useState("");
+  const pathNames = ["/", "login", "signUp", "chatRoom", "makeRoom", "myPage"];
   const components = [
-    <ChatList />,
+    <ChatList
+      setNowChatRoomName={setNowChatRoomName}
+      setNowChatRoomuuid={setNowChatRoomuuid}
+    />,
     <Login />,
     <SignUp />,
-    <ChatRoom />,
+    <ChatRoom
+      nowChatRoomName={nowChatRoomName}
+      nowChatRoomuuid={nowChatRoomuuid}
+    />,
     <MakeRoom />,
+    <MyPage />,
   ];
   return (
     <Routes>

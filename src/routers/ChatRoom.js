@@ -1,76 +1,72 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
 import ChatBubble from "../components/ChatBubble";
 import "../css/ChatRoom.css";
 import SockJS from "sockjs-client";
 import * as Stomp from "stompjs";
+import axios from "axios";
 
-const SERVER_NAME = "http://localhost:3030";
+const SERVER_NAME = "http://54.215.135.43:8080";
 
-function ChatRoom() {
+function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
   const [stompClient, setStompClient] = useState(null);
   const [chatContent, setChatContent] = useState("");
-  const [count, setCount] = useState(3);
-  const [nowUser, setNowUser] = useState("user1");
+  const [nowUser, setNowUser] = useState("");
   const [chatLog, setChatLog] = useState([
-    {
-      content: "뭐해",
-      sender: "user1",
-      count: 1,
-      time: "11:31",
-    },
-    {
-      content: "놀아",
-      sender: "user2",
-      count: 2,
-      time: "11:31",
-    },
-    {
-      content:
-        "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
-      sender: "user2",
-      count: 3,
-      time: "11:32",
-    },
+    { userName: "", context: `안녕하세요 여기는 ${nowChatRoomName} 방입니다.` },
   ]);
+
+  const scrollRef = useRef();
 
   const stompConnect = (onResponseMessage) => {
     return new Promise((succ, fail) => {
-      const sockJS = new SockJS(SERVER_NAME + "/socket");
+      const sockJS = new SockJS("http://54.215.135.43:8080/ws");
       const stompCli = Stomp.over(sockJS);
       setStompClient(stompCli);
       const headers = {
-        token: localStorage.getItem("accessToken"),
+        token: localStorage.getItem("token"),
       };
 
+      console.log(headers);
+
       stompCli.connect(
-        headers,
+        {},
         function (frame) {
           // 토큰 집어넣고
           console.log("connected: " + frame);
-          stompSubscribe("/topic/" + global.syncInfo.roomId, onResponseMessage); // 해당 방으로 구독 ->
+          stompSubscribe(
+            "/sub/room/" + nowChatRoomuuid,
+            onResponseMessage,
+            stompCli
+          ); // 해당 방으로 구독 ->
           succ(true);
         },
         function (error) {
+          console.log("에러");
           fail(error);
         }
       );
     });
   };
 
-  const stompSubscribe = (path, onResponseMessage) => {
+  const stompSubscribe = (path, onResponseMessage, stompCli) => {
     const headers = {
-      token: global.syncInfo.token,
+      token: localStorage.getItem("token"),
     };
 
-    stompClient.subscribe(
+    console.log("구독");
+
+    stompCli.subscribe(
       path,
       function (response) {
         //전달받은 메시지
-        console.log("응답: " + response);
-        //const message = JSON.parse(response.body);
-        // setChatLog([...chatLog, message])
-        onResponseMessage(response);
+        console.log("응답:" + response);
+        const message = JSON.parse(response.body);
+        //setChatLog([...chatLog, message])
+        console.log(message);
+        console.log(chatLog);
+        addChatLog(message);
+        /*onResponseMessage(response);*/
       },
       headers
     );
@@ -85,67 +81,101 @@ function ChatRoom() {
     }
   };
 
-  const stompSendMessage = (type, message) => {
+  const stompSendMessage = (nowUser, chatContent) => {
     //syncPub으로 해당 메시지를 publish 요청한다.
+    //username, context
     const body = {
-      type: type,
-      roomId: global.syncInfo.roomId, //서버에서는 토큰 안에 있는 룸아이디랑 이 룸아이디랑 일치하는지 검사해야한다.
-      senderToken: global.syncInfo.token,
-      message: message,
+      userName: nowUser,
+      context: chatContent,
     };
-    stompClient.send(
-      "/app/syncPub",
-      { token: global.syncInfo.token },
-      JSON.stringify(body)
-    );
+    stompClient.send(`/pub/room/${nowChatRoomuuid}`, {}, JSON.stringify(body));
+  };
+
+  const addChatLog = (message) => {
+    setChatLog((chatLog) => [...chatLog, message]);
+    console.log(chatLog);
+    setChatContent("");
   };
 
   // const isWebsocketConnected = () => {
   //   return stompClient != null;
   // };
 
+  //길이 제한
   const onChange = (e) => {
-    setChatContent(e.target.value);
+    if (chatContent.length > 144) {
+      return;
+    } else {
+      setChatContent(e.target.value);
+    }
   };
+
+  //메시지 전송(수정 필수)
   const onSubmit = (e) => {
     e.preventDefault();
     if (chatContent === "") {
       return;
     } else {
-      setCount((x) => x + 1);
-      const newChat = {
-        content: chatContent,
-        sender: nowUser,
-        count: count,
-        time: "11:33",
-      };
-      setChatLog([...chatLog, newChat]);
-      setChatContent("");
+      {
+        //타입 메시지만 정리해서 stompsend
+        stompSendMessage(nowUser, chatContent);
+      }
     }
   };
 
+  //스톰프 연결
+  const token = localStorage.getItem("token");
   useEffect(() => {
+    //사용자 이름 가져오기
+    axios
+      .get("/api/auth/read", {
+        headers: {
+          "x-auth-token": token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setNowUser(res.data.data.username);
+        JSON.stringify(nowUser);
+      })
+      .catch((err) => console.log(err));
+
     console.log("render");
     stompConnect();
     return () => stompDisconnect();
   }, []);
 
+  //스크롤 위치 하단 조정
+  const scrollToBottom = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  };
+  useEffect(() => {
+    console.log(chatLog);
+    scrollToBottom();
+  }, [chatLog]);
+
   return (
     <div>
-      <Header title={nowUser} backBtn={true} etcBtn={true} />
-      <div className="chatLogList">
+      <Header
+        title={nowChatRoomName}
+        roomUuid={nowChatRoomuuid}
+        backBtn={true}
+        etcBtn={true}
+      />
+      <div className="chatLogList" ref={scrollRef}>
         {chatLog.map((chatLog) => (
           <ChatBubble
-            key={chatLog.sender + chatLog.count}
+            key={chatLog.context + 1}
             chatLog={chatLog}
             nowUser={nowUser}
           />
         ))}
       </div>
       <form className="chatInput" onSubmit={onSubmit}>
-        <input
+        <textarea
           className="contentInput"
-          type="text"
           name="talk"
           onChange={onChange}
           value={chatContent}
