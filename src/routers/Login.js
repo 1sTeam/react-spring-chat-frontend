@@ -12,7 +12,7 @@ function Login() {
 
   const loginBoxList = [
     { type: "text", inputName: "ID", text: "ID" },
-    { type: "password", inputName: "password", text: "Password" },
+    { type: "password", inputName: "password", text: "비밀번호" },
   ];
 
   const onChangeState = (e) => {
