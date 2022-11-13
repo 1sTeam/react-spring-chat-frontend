@@ -68,16 +68,16 @@ function MyPage() {
 
       <AccountInfoTitle title="회원 정보 조회" />
       <AccountInfoItem title="ID(e-mail)" context={userInfo.email} />
-      <AccountInfoItem title="NickName" context={userInfo.username} />
+      <AccountInfoItem title="닉네임" context={userInfo.username} />
 
       <AccountInfoTitle title="회원 정보 수정" />
       <AccInfoInput
-        title="Password"
+        title="비밀번호"
         name="password"
         onChangeState={onChangeState}
       />
       <AccInfoInput
-        title="NickName"
+        title="닉네임"
         name="username"
         onChangeState={onChangeState}
       />
