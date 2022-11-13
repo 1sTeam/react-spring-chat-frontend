@@ -9,6 +9,7 @@
   color: #b1b2ff;
   padding: 10px;
   margin-top: 10px;
+  font-family: GangwonEduPowerExtraBoldA;
 }
 
 .signupLogo {
@@ -22,8 +23,10 @@
   border-radius: 16px;
   border: none;
   padding: 6px;
+  padding-top: 14px;
   margin: 14px;
   color: white;
   background-color: #b1b2ff;
   font-size: 26px;
+  font-family: GangwonEduPowerExtraBoldA;
 }

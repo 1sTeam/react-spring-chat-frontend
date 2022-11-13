@@ -15,7 +15,7 @@
 }
 
 .chatPersonIcon {
-  flex-grow: 1;
+  width: 80px;
   color: #b1b2ff;
   font-size: 28px;
 }
@@ -26,7 +26,8 @@
 .chatRoomName {
   font-size: var(--font-chatRoomName-size);
   font-weight: bold;
-  padding-bottom: 2px;
+  padding-top: 6px;
+  font-family: GmarketSansMedium;
 }
 .currentTalk {
   font-size: var(--font-currentTalk-size);
