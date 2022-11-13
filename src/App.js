@@ -5,6 +5,7 @@ import ChatList from "./routers/ChatList";
 import ChatRoom from "./routers/ChatRoom";
 import MakeRoom from "./routers/MakeRoom";
 import MyPage from "./routers/MyPage";
+import "./App.css";
 import { useState } from "react";
 
 function App() {
