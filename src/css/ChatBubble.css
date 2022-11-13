@@ -1,7 +1,16 @@
+.sender.you {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-family: GmarketSansMedium;
+}
+.sender.me {
+  display: none;
+}
+
 .bubble {
   width: 60%;
   padding: 6px;
-  margin: 8px;
   border-radius: 5px;
   display: flexbox;
   font-size: 20px;
@@ -15,10 +24,12 @@
 
 .bubble.me {
   background-color: #b1b2ff;
+  margin: 6px 8px;
   text-align: right;
   margin-left: auto;
 }
 .bubble.you {
+  margin: 2px 8px;
   background-color: #eef1ff;
 }
 
