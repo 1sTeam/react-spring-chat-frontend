@@ -2,13 +2,18 @@ import "../css/ChatBubble.css";
 
 function ChatBubble({ chatLog, nowUser }) {
   return (
-    <div
-      className={`bubble ${chatLog.sender === nowUser ? "me" : "you"} ${
-        chatLog.content.length > 6 ? "long" : "short"
-      }`}
-    >
-      {chatLog.content}
-      {/*<div className="time">{chatLog.time}</div>*/}
+    <div>
+      <div className={`sender ${chatLog.userName === nowUser ? "me" : "you"}`}>
+        {chatLog.userName}
+      </div>
+
+      <div
+        className={`bubble ${chatLog.userName === nowUser ? "me" : "you"} ${
+          chatLog.context.length > 5 ? "long" : "short"
+        }`}
+      >
+        {chatLog.context}
+      </div>
     </div>
   );
 }
