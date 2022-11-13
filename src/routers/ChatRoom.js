@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
 import ChatBubble from "../components/ChatBubble";
 import "../css/ChatRoom.css";
@@ -34,9 +34,11 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
     },
   ]);
 
+  const scrollRef = useRef();
+
   const stompConnect = (onResponseMessage) => {
     return new Promise((succ, fail) => {
-      const sockJS = new SockJS(SERVER_NAME + "/socket");
+      const sockJS = new SockJS("http://54.215.135.43:8080/ws");
       const stompCli = Stomp.over(sockJS);
       setStompClient(stompCli);
       const headers = {
@@ -46,11 +48,10 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
       console.log(headers);
 
       stompCli.connect(
-        headers,
         function (frame) {
           // 토큰 집어넣고
           console.log("connected: " + frame);
-          stompSubscribe("/topic/" + nowChatRoomuuid, onResponseMessage); // 해당 방으로 구독 ->
+          stompSubscribe("/sub/" + nowChatRoomuuid, onResponseMessage); // 해당 방으로 구독 ->
           succ(true);
         },
         function (error) {
@@ -96,7 +97,7 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
       message: message,
     };
     stompClient.send(
-      "/app/syncPub",
+      "/pub/syncPub",
       { token: global.syncInfo.token },
       JSON.stringify(body)
     );
@@ -107,7 +108,11 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
   // };
 
   const onChange = (e) => {
-    setChatContent(e.target.value);
+    if (chatContent.length > 144) {
+      return;
+    } else {
+      setChatContent(e.target.value);
+    }
   };
   const onSubmit = (e) => {
     e.preventDefault();
@@ -132,6 +137,16 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
     return () => stompDisconnect();
   }, []);
 
+  const scrollToBottom = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatLog]);
+
   return (
     <div>
       <Header
@@ -140,7 +155,7 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
         backBtn={true}
         etcBtn={true}
       />
-      <div className="chatLogList">
+      <div className="chatLogList" ref={scrollRef}>
         {chatLog.map((chatLog) => (
           <ChatBubble
             key={chatLog.sender + chatLog.count}
@@ -150,13 +165,11 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
         ))}
       </div>
       <form className="chatInput" onSubmit={onSubmit}>
-        <input
+        <textarea
           className="contentInput"
-          type="text"
           name="talk"
           onChange={onChange}
           value={chatContent}
-          autoComplete="off"
         />
         <input className="contentSubmit" type="submit" value={">"} />
       </form>
