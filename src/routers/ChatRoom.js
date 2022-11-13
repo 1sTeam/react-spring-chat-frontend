@@ -92,7 +92,8 @@ function ChatRoom({ nowChatRoomName, nowChatRoomuuid }) {
   };
 
   const addChatLog = (message) => {
-    setChatLog([...chatLog, message]);
+    setChatLog((chatLog) => [...chatLog, message]);
+    console.log(chatLog);
     setChatContent("");
   };
 
