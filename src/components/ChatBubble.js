@@ -8,7 +8,7 @@ function ChatBubble({ chatLog, nowUser }) {
       }`}
     >
       {chatLog.content}
-      <div className="time">{chatLog.time}</div>
+      {/*<div className="time">{chatLog.time}</div>*/}
     </div>
   );
 }
