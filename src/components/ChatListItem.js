@@ -1,6 +1,6 @@
 import "../css/ChatListItem.css";
 import { useNavigate } from "react-router-dom";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsPeopleFill } from "react-icons/bs";
 
 function ChatListItem({
   chatRoomName,
@@ -16,7 +16,7 @@ function ChatListItem({
   };
   return (
     <div className="chatRoomInfo" onClick={goChatRoom}>
-      <BsFillPersonFill className="chatPersonIcon" />
+      <BsPeopleFill className="chatPersonIcon" />
       <div className="chatRoomContext">
         <div className="chatRoomName">{chatRoomName}</div>
       </div>
