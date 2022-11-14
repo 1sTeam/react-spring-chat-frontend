@@ -18,9 +18,17 @@ function ChatList({ setNowChatRoomName, setNowChatRoomuuid }) {
 
   //채팅 방 정보 가져오기
   useEffect(() => {
-    if (localStorage.getItem("token") === null) {
-      navigate("/login");
-    }
+    const token = localStorage.getItem("token");
+    axios
+      .get("/api/auth/read", {
+        headers: {
+          "x-auth-token": token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => navigate("/login"));
 
     axios
       .get("http://54.215.135.43:8080/api/chat/rooms")
