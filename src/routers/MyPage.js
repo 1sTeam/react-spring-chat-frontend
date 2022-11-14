@@ -83,7 +83,7 @@ function MyPage() {
       />
 
       <button className="EditBtn" onClick={handleEditInfo}>
-        Edit
+        수정하기
       </button>
     </div>
   );
