@@ -79,7 +79,7 @@ function SignUp() {
             onChangeState={onChangeState}
           />
         ))}
-        <input className="signupBtn" type="submit" value="Sign Up" />
+        <input className="signupBtn" type="submit" value="가입하기" />
       </form>
     </div>
   );
