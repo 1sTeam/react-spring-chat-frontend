@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineWechat } from "react-icons/ai";
+import { MdHomeWork } from "react-icons/md";
 import InputBox from "../components/InputBox";
 import "../css/Login.css";
 import axios from "axios";
@@ -72,7 +73,7 @@ function Login() {
   return (
     <div>
       <div className="titleLogo">
-        <AiOutlineWechat className="logo" />
+        <MdHomeWork className="logo" />
       </div>
       <form className="loginForm" onSubmit={onSubmit}>
         <div className="signText">Sign in to your account</div>
@@ -84,7 +85,7 @@ function Login() {
           />
         ))}
 
-        <input className="loginSubmit" type="submit" value="Sign in" />
+        <input className="loginSubmit" type="submit" value="로그인" />
         <div className="signUpBox">
           Don't have an account?
           <button className="signUpBtn" onClick={goSignUp}>
